@@ -1,0 +1,8 @@
+{
+  "name": "errors-encountered",
+  "version": "1.0.0",
+  "main": "index.tsx",
+  "repository": "git@github.com:Kachulio1/errors-encountered.git",
+  "author": "kachulio1 <jngugi88@gmail.com>",
+  "license": "MIT"
+}
