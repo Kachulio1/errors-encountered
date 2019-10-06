@@ -9,7 +9,9 @@
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack -d --mode development",
     "build-prod": "webpack -p --mode production",
-    "start": "webpack-dev-server --mode development"
+    "start": "webpack-dev-server --mode development",
+    "cypress": "cypress run",
+    "cypress:open": "cypress open"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
