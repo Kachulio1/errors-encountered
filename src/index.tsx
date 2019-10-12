@@ -1,14 +1,18 @@
 import * as React from 'react';
-import * as ReactDOM from "react-dom";
-import "./styles.scss";
+import * as ReactDOM from 'react-dom';
 
+import { Provider } from 'mobx-react';
 
+import ErrorStore from './store/errorStore';
+import App from './components/App';
+import './styles.scss';
 
-class App extends React.Component {
-  render() {
-    return <div>Hello Errors</div>;
-  }
-}
+const errorStore = new ErrorStore();
+const  elementToMount = document.getElementById('app');
 
-var elementToMount = document.getElementById("app");
-ReactDOM.render(<App />, elementToMount);
+ReactDOM.render(
+  <Provider errorStore={errorStore}>
+    <App />
+  </Provider>,
+  elementToMount
+);
