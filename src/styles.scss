@@ -1,0 +1,373 @@
+// TODO change styles to styled component 
+// file upload 
+.file-upload-wrapper {
+  $defaultColor: #4daf7c;
+  $height: 60px;
+  
+  position: relative;
+  width: 100%;
+  height: $height;
+  
+  &:after {
+    content: attr(data-text);
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    padding: 10px 15px;
+    display: block;
+    width: calc(100% - 40px);
+    pointer-events: none;
+    z-index: 20;
+    height: $height - 20px;
+    line-height: $height - 20px;
+    color: #999;
+    border-radius: 5px 10px 10px 5px;
+    font-weight: 300;
+  }
+  
+  &:before {
+    content: 'Upload';
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    height: 60px;
+    background: $defaultColor;
+    color: #fff;
+    font-weight: 700;
+    z-index: 25;
+    font-size: 16px;
+    line-height: $height;
+    padding: 0 15px;
+    text-transform: uppercase;
+    pointer-events: none;
+    border-radius: 0 5px 5px 0;
+  }
+  
+  &:hover {
+    &:before {
+      background: darken($defaultColor, 10%);
+    }
+  }
+   input {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    height: $height - 20px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    cursor: pointer;
+    width: 100%;
+  }
+}
+
+
+// form Style
+
+
+.form-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  background: url(https://img.icons8.com/color/48/000000/javascript.png);
+  background-size: 30% 30%;
+  background-repeat: no-repeat;
+}
+
+.error-list {
+  display: flex;
+  grid-area: items;
+  border-radius: 9% 9% 0% 0% / 14% 14% 10% 10%;
+  box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.9);
+  
+}
+.navbar {
+  grid-area: navbar;
+  
+}
+.sidebar {
+  grid-area: sidebar;
+  background-color: #14141473;
+  box-shadow:inset 5px 5px 15px rgba(0, 0, 0, 0.9);
+}
+.coming-soon {
+  font-family: "Sans";
+  font-weight: 200;
+  font-size: 0.74em;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  position: absolute;
+  top: 50%;
+  margin: 0 1.5%;
+  color: white;
+}
+
+.letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+//Card css
+.card {
+  display: grid;
+  width: 300px;
+  grid-template-columns: 300px;
+  grid-template-rows: 210px 210px 80px;
+  grid-template-areas: 'image' 'text' 'stats';
+  border-radius: 18px;
+  background: white;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  font-family: roboto;
+  text-align: center;
+  transition: 0.5s ease;
+  cursor: pointer;
+  margin: 30px;
+}
+
+.card-image {
+  grid-area: image;
+}
+.card-text {
+  grid-area: text;
+}
+.card-stats {
+  grid-area: stats;
+}
+
+.card-image {
+  grid-area: image;
+  background: url('https://intoli.com/blog/nightmare-console-errors/img/nightmare-console-errors.png');
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-size: cover;
+}
+
+.card-text {
+  grid-area: text;
+  margin: 25px;
+}
+.card-text .date {
+  color: rgb(255, 7, 110);
+  font-size: 13px;
+}
+.card-text p {
+  color: grey;
+  font-size: 15px;
+  font-weight: 300;
+}
+.card-text h2 {
+  margin-top: 0px;
+  font-size: 28px;
+}
+.card-stats {
+  grid-area: stats;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background: rgb(255, 7, 110);
+}
+
+.card-stats .stat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  color: white;
+  padding: 10px;
+}
+
+.card:hover {
+  transform: scale(1.15);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+//Create button
+.create-button {
+  right: calc(10% - 2em);
+  top: 200%;
+  color: white;
+  cursor: pointer;
+  height: 3em;
+  position: absolute;
+  width: 3em;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  background-image: linear-gradient(to right, #f22121, #e94057, #8a2387);
+  box-shadow: 0 4px 15px 0 #e91e6370;
+  border-radius: 50%;
+  transition: all 0.4s ease-in-out;
+  &:before,
+  &:after {
+    background-color: white;
+    content: '';
+    display: block;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  &:before {
+    height: 3px;
+    width: 25px;
+    -webkit-transition: width 200ms;
+    transition: width 200ms;
+  }
+  &:after {
+    height: 25px;
+    width: 3px;
+  }
+}
+
+.create-button:hover {
+  background-position: 100% 0;
+  transition: all 0.4s ease-in-out;
+}
+
+//App css
+.container {
+  display: grid;
+  height: 100vh;
+  background: #252423;
+  grid-template-rows: 150px auto;
+  grid-template-columns: 200px auto;
+  grid-template-areas:
+    'sidebar navbar'
+    'sidebar items';
+}
+
+
+// Avatar
+
+.avatar-wrap {
+  
+   padding-left: 15px;
+  .avatar {
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    background-color: rgb(10, 83, 217);
+
+    &.isSquare {
+      border-radius: 0;
+    }
+    &:hover {
+      cursor: pointer;
+      color: cyan;
+  }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .initial {
+      margin: auto;
+      font-size: 1.1em;
+      text-transform: uppercase;
+      line-height: 1;
+      color: #fff;
+    }
+  }
+}
+
+
+// nav 
+
+header {
+  position: absolute;
+  padding: 1em;
+
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 10em);
+
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    width: calc(100% - 4em);
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  li a {
+    padding: 1em;
+    color: rgba(255, 255, 255, 0.801);
+    letter-spacing: 0.03em;
+    font-size: 15px;
+    font-weight: 600;
+    &:hover {
+        cursor: pointer;
+        color: cyan;
+    }
+    
+  }
+  .hover-link {
+    position: relative;
+  }
+  .hover-link::after {
+    content: ' ';
+    position: absolute;
+    left: 0.9rem;
+    width: 80%;
+    height: 3px;
+    top: 2.2rem;
+    //background: linear-gradient(to right, #ec2F4B, #009FFF);
+    background: linear-gradient(to right, #f27121, #e94057, #8a2387);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 250ms ease-in;
+  }
+}
+
+.hover-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #252423;
+  overflow-x: hidden;
+}
