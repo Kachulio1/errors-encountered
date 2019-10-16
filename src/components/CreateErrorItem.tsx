@@ -1,11 +1,14 @@
 import * as React from 'react';
 import { inject } from 'mobx-react';
 import UploadImage from './UploadImage';
+import TagInput from './TagInput';
+
 @inject('errorStore')
 export default class Modal extends React.Component<any, any> {
   state = {
     id: '',
     title: '',
+    description:'',
     tags: [],
     image: null
   };
@@ -18,6 +21,23 @@ export default class Modal extends React.Component<any, any> {
     this.setState({ [name]: value });
   };
 
+  handleTags = (event: any) => {
+    const value = event.target.value.replace(/,/g, '');
+    if (value !== '') {
+      this.setState({ tags: [...this.state.tags, value] });
+      event.target.value = '';
+    }
+  };
+
+  removeTag = (indexToRemove: number) => {
+    this.setState({
+      tags: [
+        ...this.state.tags.filter(
+          (_: never, index: number) => index !== indexToRemove
+        )
+      ]
+    });
+  };
 
   handleImageChange = (e: any) => {
     e.preventDefault();
@@ -43,6 +63,7 @@ export default class Modal extends React.Component<any, any> {
       image: ''
     });
     e.preventDefault();
+    this.props.hideModal();
   };
   render() {
     return (
@@ -73,18 +94,32 @@ export default class Modal extends React.Component<any, any> {
             </label>
 
             <label>
-              Tags:
+              Description:
               <input
-                type='text'
-                value={this.state.tags.join(' ')}
-                name='tags'
+                type='description'
+                value={this.state.description}
+                name='description'
                 onChange={this.handleChange}
               />
             </label>
+
             <input type='submit' value='Submit' />
           </form>
           <br />
-          <UploadImage handleImageChange={this.handleImageChange} image={this.state.image}/>
+          <UploadImage
+            handleImageChange={this.handleImageChange}
+            image={this.state.image}
+          />
+
+          <label>
+            Tags:
+            <TagInput
+              handleTags={this.handleTags}
+              removeTag={this.removeTag}
+              tags={this.state.tags}
+            />
+          </label>
+
           <button onClick={this.props.hideModal}>Close</button>
         </div>
       </div>
