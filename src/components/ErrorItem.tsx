@@ -21,6 +21,19 @@ export default class extends React.Component<any, any> {
           <h2>{this.props.errorItem.title}</h2>
           <p>I did this and that and poof the error was no more.</p>
         </div>
+        <div className='social-btns'>
+          <a className='btn twitter' href='#'>
+            <FaTwitter className='fa' />
+          </a>
+          <a className='btn github' href='#'>
+            <FaGit className='fa'/>
+          </a>
+
+          <a className='btn linkedin' href='#'>
+            <FaLinkedinIn className='fa' />
+          </a>
+        </div>
+        
         <div className='card-stats'>
           <div className='stat'>
             <div className='value'>
@@ -37,18 +50,7 @@ export default class extends React.Component<any, any> {
             <FaRegComment />
           </div>
         </div>
-        <div className='social-btns'>
-          <a className='btn twitter' href='#'>
-            <FaTwitter className='fa' />
-          </a>
-          <a className='btn github' href='#'>
-            <FaGit className='fa'/>
-          </a>
 
-          <a className='btn linkedin' href='#'>
-            <FaLinkedinIn className='fa' />
-          </a>
-        </div>
       </div>
     );
   }
